@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* html, body {
+  background-color: white;
+  color: black;
+} */
+
+/* ✅ Fix scroll issue by ensuring body/html can grow beyond screen */
+/* html, body {
+  @apply min-h-screen overflow-x-hidden bg-white text-black font-sans;
+} */
+
+/* Optional: Keep font base consistent */
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
+
+/* Heatmap colors */
+.color-empty {
+  fill: #ebedf0;
+}
+.color-scale-1 {
+  fill: #bbf7d0;
+}
+.color-scale-2 {
+  fill: #86efac;
+}
+.color-scale-3 {
+  fill: #4ade80;
+}
+.color-scale-4 {
+  fill: #16a34a;
+}
+
+/* Card component utility */
+/* .card {
+  @apply bg-white p-4 rounded-xl shadow-sm;
+} */
