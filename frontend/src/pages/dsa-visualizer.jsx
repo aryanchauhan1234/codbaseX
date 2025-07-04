@@ -5,11 +5,15 @@ import BinarySearchVisualizer from "../components/binary_search_vis";
 import DFSVisualizer from "../components/Dfsvisualizer";
 import QuickSortVisualizer from "../components/QuickSortVisualizer";
 import DijkstraVisualizer from "../components/DijkstraVisualizer.jsx";
+import QueueVisualizer from "../components/ QueueVisualizer.jsx";
+import StackVisualizer from "../components/StackVisualizer.jsx";
 const visualizers = {
   "Binary Search": <BinarySearchVisualizer />,
   "DFSVisualizer": <DFSVisualizer />,
   "QuickSortVisualizer": <QuickSortVisualizer />,
   "DijkstraVisualizer": <DijkstraVisualizer />,
+  "StackVisualizer" : <StackVisualizer/>,
+  "QueueVisualizer" : <QueueVisualizer/>
 };
 
 const DsaVisualizer = () => {

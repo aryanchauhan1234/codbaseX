@@ -26,6 +26,8 @@ const DijkstraVisualizer = () => {
     const [edges, setEdges] = useState([]);
     const [layout, setLayout] = useState({});
     const [shortestPathEdges, setShortestPathEdges] = useState([]);
+    const [totalans,settotalans]=useState(Infinity);
+    // let totalans = Infinity;
     const parseEdges = () => {
         const edgeList = edgeInput.split(",").map((s) => s.trim().split(" "));
         const graph = {};
@@ -104,10 +106,11 @@ const DijkstraVisualizer = () => {
                 }
             }
         }
+        settotalans(dist[(nodeIds.length)-1]);
         return { log, finalDistances: dist, parent };
     };
-
-
+    
+    
     const handleStart = () => {
         const { graph, nodeIds, edgeObjs } = parseEdges();
         const { log, finalDistances, parent } = runDijkstra(graph, nodeIds, startNode);
@@ -120,14 +123,17 @@ const DijkstraVisualizer = () => {
         setCurrentStep(0);
         setShortestPathEdges(findShortestPathEdges(parent));
     };
-
-
+    
+    
     const nextStep = () => {
         if (currentStep < steps.length-1) {
             setCurrentStep((prev) => prev + 1);
         }
+        // else{
+        //     console.log("hi")
+        // }
     };
-
+    
     const reset = () => {
         setEdgeInput("0 1 1, 0 2 2, 1 2 2, 1 3 5, 2 3 1 , 3 4 1, 4 5 9 , 4 1 2 , 3 5 3");
         setStartNode("0");
@@ -138,9 +144,9 @@ const DijkstraVisualizer = () => {
         setStarted(false);
         setCurrentStep(0);
     };
-
+    
     const state = steps[currentStep];
-
+    
     const renderInfoSection = () => (
         <Card className="shadow-xl border rounded-2xl mt-10 ">
             <CardContent className="pt-6 space-y-4">
@@ -156,13 +162,13 @@ const DijkstraVisualizer = () => {
     pq.pop();
     if (d > dist[u]) continue;
     for (auto [v, w] : graph[u]) {
-      if (dist[v] > d + w) {
-        dist[v] = d + w;
-        pq.push({dist[v], v});
-      }
-    }
-  }
-}`}
+        if (dist[v] > d + w) {
+            dist[v] = d + w;
+            pq.push({dist[v], v});
+            }
+            }
+            }
+            }`}
                 </pre>
 
                 <div className="bg-orange-100 border border-orange-300 p-4 rounded-xl text-sm space-y-1 mb-10">
@@ -181,7 +187,7 @@ const DijkstraVisualizer = () => {
             </CardContent>
         </Card>
     );
-
+    
     return (
         <div className="relative w-full mx-auto max-w-5xl px-4 py-8">
             <h2 className="text-4xl font-bold text-orange-600 text-center mb-6">Dijkstra Visualizer with Weights</h2>
@@ -195,18 +201,18 @@ const DijkstraVisualizer = () => {
                             onChange={(e) => setEdgeInput(e.target.value)}
                             placeholder="Edges (e.g. 0 1 1, 1 2 3)"
                             className="border border-gray-300 rounded-xl p-3"
-                        />
+                            />
                         <input
                             type="text"
                             value={startNode}
                             onChange={(e) => setStartNode(e.target.value)}
                             placeholder="Start Node"
                             className="border border-gray-300 rounded-xl p-3"
-                        />
+                            />
                         <button
                             onClick={handleStart}
                             className="bg-orange-500 hover:bg-orange-600 mb-10 mt-5 text-white py-3 px-4 rounded-xl col-span-2"
-                        >
+                            >
                             🎬 Start Visualization
                         </button>
                     </div>
@@ -303,13 +309,16 @@ const DijkstraVisualizer = () => {
                                 : state?.visiting
                                     ? `Visiting node ${state.visiting}`
                                     : ""}
+                                    <div className="text-green-700">
+                                    {currentStep+1  >= steps.length ? `Total Path Sum is ${totalans} ` : ""}
+                                    </div>
                         </div>
 
                         {/* Controls */}
                         <div className="z-20 relative flex justify-center gap-4 mt-5 mb-3">
                             <button
                                 onClick={nextStep}
-                                disabled={currentStep + 1 >= steps.length}
+                                disabled={currentStep  >= steps.length}
                                 className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-2xl disabled:opacity-50"
                             >
                                 ⏭️ Next Step
