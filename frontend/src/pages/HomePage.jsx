@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import ImageWithSkeleton from "../components/ImageWithSkeleton";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -13,38 +14,31 @@ const HomePage = () => {
   const faqs = [
     {
       question: "How can I track my Codeforces and LeetCode progress?",
-      answer:
-        "Just enter your handle in the Profile Tracker section. We automatically fetch and update your performance stats.",
+      answer: "Just enter your handle in the Profile Tracker section...",
     },
     {
       question: "Can I add my own DSA questions?",
-      answer:
-        "Yes! Use the Question Tracker to create and organize your custom DSA question list by data structures.",
+      answer: "Yes! Use the Question Tracker to create and organize...",
     },
     {
       question: "What is the DSA Visualizer feature for?",
-      answer:
-        "It helps you understand key algorithms like Binary Search, DFS, and Dijkstra using interactive animations and step-by-step visuals.",
+      answer: "It helps you understand key algorithms using animations...",
     },
     {
       question: "Will my portfolio update automatically?",
-      answer:
-        "Once you connect your coding handles, your profile data stays in sync and reflects on your portfolio page.",
+      answer: "Once you connect your coding handles, it syncs automatically.",
     },
     {
       question: "What platforms are currently supported?",
-      answer:
-        "We support Codeforces, LeetCode. Support for GFG and AtCoder is coming soon!",
+      answer: "Codeforces and LeetCode. GFG and AtCoder coming soon!",
     },
     {
       question: "Can I track upcoming contests?",
-      answer:
-        "Yes! Go to the Event Tracker page to view a calendar of upcoming contests across platforms.",
+      answer: "Yes! Use the Event Tracker page to view a contest calendar.",
     },
     {
       question: "Do I need to log in to use these features?",
-      answer:
-        "Login is required to sync your handles, generate portfolios, and save your custom questions.",
+      answer: "Yes, login is needed to sync handles and save data.",
     },
   ];
 
@@ -66,7 +60,9 @@ const HomePage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="text-black font-extrabold text-5xl sm:text-6xl">Track, Analyze & Share</h1>
+        <h1 className="text-black font-extrabold text-5xl sm:text-6xl">
+          Track, Analyze & Share
+        </h1>
         <h2 className="text-gray-600 text-2xl sm:text-3xl font-semibold">
           <span className="text-orange-500">Codefolio</span> helps you navigate and track your coding journey to success
         </h2>
@@ -93,28 +89,15 @@ const HomePage = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <img loading="lazy" className="w-40 lg:w-60 rounded-xl object-contain" src="/photo1.png" alt="photo1" />
+        <ImageWithSkeleton className="w-[40%] rounded-xl object-contain" src="/photo1.png" alt="photo1" />
         <div className="text-center lg:w-[40%]">
           <h1 className="font-extrabold text-3xl">
             Track your <span className="text-orange-500">Codeforces</span> journey with us
           </h1>
         </div>
         <div className="border border-gray-300 rounded-2xl p-2 shadow hover:scale-105 transition-transform">
-          <img loading="lazy" className="rounded-lg object-contain" src="/1.png" alt="cf-demo" />
+          <ImageWithSkeleton className="rounded-lg object-contain" src="/1.png" alt="cf-demo" />
         </div>
-      </motion.div>
-
-      {/* Platform Section */}
-      <motion.div
-        className="mt-24 text-center max-w-4xl mx-auto"
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h1 className="text-black font-extrabold text-4xl sm:text-5xl">Your Favourite Coding Platform</h1>
-        <h2 className="text-gray-500 text-xl sm:text-2xl font-semibold mt-4">
-          Streamlined in CodeTracker to simplify your coding journey
-        </h2>
       </motion.div>
 
       {/* Problem Distribution Section */}
@@ -125,11 +108,11 @@ const HomePage = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="border w-full lg:w-[60%] border-gray-300 rounded-2xl p-2 shadow-md hover:scale-105 transition-transform">
-          <img loading="lazy" className="rounded-lg object-cover" src="/3.png" alt="distribution" />
+          <ImageWithSkeleton className="rounded-lg object-cover" src="/3.png" alt="distribution" />
         </div>
         <div className="flex flex-col lg:flex-row items-center gap-4 lg:w-[30%] text-center">
-          <img loading="lazy" className="w-32 lg:w-44 rounded-xl shadow-sm object-contain" src="/photo3.png" alt="illustration" />
-          <h1 className="font-extrabold text-2xl lg:text-3xl">
+          {/* <ImageWithSkeleton className="w-32 lg:w-44 rounded-xl shadow-sm object-contain" src="/photo3.png" alt="illustration" /> */}
+          <h1 className="font-extrabold text-2xl lg:text-4xl">
             Your <span className="text-orange-500">problem</span> distribution and much more
           </h1>
         </div>
@@ -145,14 +128,13 @@ const HomePage = () => {
         <h1 className="text-black font-extrabold text-4xl">Simplify Your Prep</h1>
         <h2 className="text-gray-500 text-2xl font-semibold mt-3">by tracking your contests on</h2>
       </motion.div>
-      <motion.img
-        loading="lazy"
-        onClick={() => navigate("/events")}
-        className="w-full cursor-pointer my-10 rounded-xl shadow-md hover:scale-[1.01] transition-transform object-cover"
-        src="/photo4.png"
-        alt="event tracking"
-        whileHover={{ scale: 1.02 }}
-      />
+      <motion.div whileHover={{ scale: 1.02 }}>
+        <ImageWithSkeleton
+          className="w-full cursor-pointer my-10 rounded-xl shadow-md hover:scale-[1.01] transition-transform object-cover"
+          src="/photo4.png"
+          alt="event tracking"
+        />
+      </motion.div>
 
       {/* Portfolio Section */}
       <motion.div className="mt-20 text-left w-full" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5 }}>
@@ -163,15 +145,13 @@ const HomePage = () => {
           Get your Portfolio {'->'}
         </h2>
       </motion.div>
-      <motion.img
-        loading="lazy"
+      <ImageWithSkeleton
         className="w-full cursor-pointer my-5 rounded-xl shadow-md border border-gray-200 hover:scale-105 transition-transform"
         src="/portfolio.png"
         alt="portfolio preview"
-        whileHover={{ scale: 1.05 }}
       />
 
-      {/* Card Unlock Section */}
+      {/* Card Section */}
       <motion.div className="mt-20 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5 }}>
         <h1 className="text-black font-extrabold text-4xl sm:text-5xl">
           <span className="text-orange-500">UNLOCK</span> your Codefolio CARD
@@ -180,12 +160,10 @@ const HomePage = () => {
           Get your Card {'->'}
         </h2>
       </motion.div>
-      <motion.img
-        loading="lazy"
+      <ImageWithSkeleton
         className="mx-auto w-60 sm:w-80 cursor-pointer my-6 border border-orange-500 rounded-2xl shadow-md hover:scale-105 transition-transform object-contain"
         src="/card.png"
         alt="card"
-        whileHover={{ scale: 1.05 }}
       />
 
       {/* Visualizer Section */}
@@ -205,7 +183,7 @@ const HomePage = () => {
               whileHover={{ scale: 1.05 }}
               className="relative min-w-[320px] max-w-sm rounded-xl shadow-md overflow-hidden cursor-pointer transition-transform duration-300 border border-gray-200 bg-white"
             >
-              <img loading="lazy" src={src} alt={title} className="w-full h-56 object-contain bg-white rounded-t-xl" />
+              <ImageWithSkeleton src={src} alt={title} className="w-full h-56 object-contain bg-white rounded-t-xl" />
               <div className="absolute bottom-0 w-full bg-black/60 px-4 py-2">
                 <h3 className="text-white font-semibold text-lg">{title} Visualizer</h3>
               </div>
@@ -221,7 +199,11 @@ const HomePage = () => {
         </h2>
         <div className="space-y-2">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-gray-300 pb-4 pt-3 cursor-pointer" onClick={() => setOpenIndex(prev => (prev === index ? null : index))}>
+            <div
+              key={index}
+              className="border-b border-gray-300 pb-4 pt-3 cursor-pointer"
+              onClick={() => setOpenIndex(prev => (prev === index ? null : index))}
+            >
               <div className="flex justify-between items-center">
                 <h3 className="text-base sm:text-lg font-medium text-black">{faq.question}</h3>
                 <span className="text-xl font-bold">{openIndex === index ? "−" : "+"}</span>
