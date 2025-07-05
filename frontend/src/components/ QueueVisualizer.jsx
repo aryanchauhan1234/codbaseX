@@ -70,7 +70,7 @@ int main() {
 
   return (
     <div className="p-4">
-      <h2 className="text-4xl font-bold mb-[5%] text-orange-600">Queue (FIFO)</h2>
+      <h2 className="text-2xl font-bold mb-[5%] text-orange-700">Queue (FIFO)</h2>
       <div className="text-sm text-gray-700 mb-2 h-6">{message}</div>
       <div className="flex gap-2 mb-4 flex-wrap   ">
         <input

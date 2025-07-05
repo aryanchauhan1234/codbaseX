@@ -13,6 +13,7 @@ import Portfolio from "./pages/Portfolio";
 import Card from "./pages/card";
 import { useGlobalStore } from "./store/useGlobalStore";
 import GlobalLoader from "./components/GlobalLoader";
+import QuestionTracker from "./pages/QuestionTracker";
 import Footer from "./components/Footer";
 import Events from "./pages/events"
 import Dsavisualizer from "./pages/dsa-visualizer";
@@ -66,6 +67,7 @@ const App = () => {
           <Route path="/events" element={<Events /> } />
           <Route path="/Card" element={<Card /> } />
           <Route path="/dsa-visualizer" element={<Dsavisualizer /> } />
+          <Route path="/QuestionTracker" element={<QuestionTracker /> } />
         </Routes>
       </main>
 

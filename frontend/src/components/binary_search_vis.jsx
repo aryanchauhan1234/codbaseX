@@ -131,7 +131,7 @@ const BinarySearchVisualizer = () => {
         </div>
 
         {started ? (
-          <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 text-lg whitespace-pre-wrap text-orange-900 font-bold mt-5">
+          <div className="px-[27%] bg-orange-50 border border-orange-200 rounded-xl p-4 text-lg whitespace-pre-wrap text-orange-900 font-bold mt-5">
             {steps[currentStep]?.explanation}
           </div>
         ) : ""}

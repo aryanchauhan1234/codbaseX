@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 import LogoutConfirmationModal from "../components/LogoutConfirmationModal";
-
+import { LogOut } from "lucide-react";
 const Navbar = () => {
   const { logout, authUser } = useAuthStore();
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -37,6 +37,9 @@ const Navbar = () => {
               <Link to="/dsa-visualizer" className="px-2.5 py-1 hover:bg-white/20 rounded transition text-black">
                 Algorithms
               </Link>
+              <Link to="/QuestionTracker" className="px-2.5 py-1 hover:bg-white/20 rounded transition text-black">
+                Question Tracker
+              </Link>
 
               {/* Dropdown */}
               <div className="relative group">
@@ -63,11 +66,12 @@ const Navbar = () => {
 
               {authUser && (
                 <button
-                  onClick={handleLogoutClick}
-                  className="px-2.5 py-1 hover:bg-white/20 rounded transition text-black"
-                >
-                  Logout
-                </button>
+  onClick={handleLogoutClick}
+  className="flex items-center gap-2 py-1.5 text-red-500 hover:bg-orange-100 rounded transition"
+>
+  <LogOut size={18} />
+  {/* <span className="hidden sm:inline">Logout</span> */}
+</button>
               )}
             </div>
           </div>

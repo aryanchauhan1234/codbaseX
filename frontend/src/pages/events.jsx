@@ -22,38 +22,65 @@ const EventTracker = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // ✅ Scroll to top on mount
     window.scrollTo({ top: 0, behavior: "smooth" });
-
-    const fetchContests = async () => {
-      try {
-        const res = await fetch("https://codeforces.com/api/contest.list");
-        const data = await res.json();
-
-        if (data.status === "OK") {
-          const upcoming = data.result
-            .filter((c) => c.phase === "BEFORE")
-            .map((c) => ({
-              id: c.id,
-              title: c.name,
-              start: new Date(c.startTimeSeconds * 1000),
-              end: new Date(c.startTimeSeconds * 1000 + c.durationSeconds * 1000),
-              duration: c.durationSeconds,
-              link: `https://codeforces.com/contests/${c.id}`,
-            }))
-            .sort((a, b) => a.start - b.start);
-
-          setContests(upcoming);
-        }
-      } catch (err) {
-        console.error("Error fetching contests:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchContests();
+    fetchAllContests();
   }, []);
+
+  const fetchCodeforces = async () => {
+    try {
+      const res = await fetch("https://codeforces.com/api/contest.list");
+      const data = await res.json();
+
+      if (data.status === "OK") {
+        return data.result
+          .filter((c) => c.phase === "BEFORE")
+          .map((c) => ({
+            id: `cf-${c.id}`,
+            title: c.name,
+            start: new Date(c.startTimeSeconds * 1000),
+            end: new Date(c.startTimeSeconds * 1000 + c.durationSeconds * 1000),
+            duration: c.durationSeconds,
+            link: `https://codeforces.com/contests/${c.id}`,
+            platform: "cf",
+          }));
+      }
+    } catch (err) {
+      console.error("Codeforces fetch failed:", err);
+    }
+    return [];
+  };
+
+  // const fetchLeetCode = async () => {
+  //   try {
+  //     const res = await fetch("https://leetcode.com/contest/api/list/active/");
+  //     const data = await res.json();
+
+  //     if (data && data.contests) {
+  //       return data.contests
+  //         .filter((c) => c.start_time * 1000 > Date.now())
+  //         .map((c) => ({
+  //           id: `lc-${c.title_slug}`,
+  //           title: c.title,
+  //           start: new Date(c.start_time * 1000),
+  //           end: new Date((c.start_time + c.duration) * 1000),
+  //           duration: c.duration,
+  //           link: `https://leetcode.com/contest/${c.title_slug}/`,
+  //           platform: "lc",
+  //         }));
+  //     }
+  //   } catch (err) {
+  //     console.error("LeetCode fetch failed:", err);
+  //   }
+  //   return [];
+  // };
+
+  const fetchAllContests = async () => {
+    setLoading(true);
+    const [cf, lc] = await Promise.all([fetchCodeforces()]);
+    const all = [...cf].sort((a, b) => a.start - b.start);
+    setContests(all);
+    setLoading(false);
+  };
 
   const formatDate = (date) =>
     date.toLocaleString("en-IN", {
@@ -66,7 +93,7 @@ const EventTracker = () => {
 
   return (
     <div className="p-6 bg-white min-h-screen pt-24">
-      <h1 className="text-3xl font-bold text-orange-600 mb-6">Codeforces Contest Tracker</h1>
+      <h1 className="text-3xl font-bold text-orange-600 mb-6">Contest Event Tracker</h1>
 
       {loading ? (
         <div className="flex justify-center items-center h-60">
@@ -81,7 +108,11 @@ const EventTracker = () => {
                 key={contest.id}
                 className="flex gap-3 items-start bg-orange-50 border border-orange-200 p-4 rounded-xl shadow hover:shadow-md transition"
               >
-                <img src="/codeforces.png" alt="CF" className="w-6 h-6 mt-1" />
+                <img
+                  src={contest.platform === "cf" ? "/codeforces.png" : "/leetcode.png"}
+                  alt="Platform"
+                  className="w-6 h-6 mt-1"
+                />
                 <div>
                   <h2 className="text-md font-semibold text-gray-800">{contest.title}</h2>
                   <p className="text-sm text-gray-500 mt-1">
@@ -97,7 +128,7 @@ const EventTracker = () => {
                     rel="noopener noreferrer"
                     className="mt-2 inline-block text-sm text-orange-600 hover:underline"
                   >
-                    View on Codeforces →
+                    View →
                   </a>
                 </div>
               </div>
@@ -116,7 +147,11 @@ const EventTracker = () => {
                 components={{
                   event: ({ event }) => (
                     <div className="flex items-center gap-1">
-                      <img src="/cf.png" alt="CF" className="w-4 h-4" />
+                      <img
+                        src={event.platform === "cf" ? "/cf.png" : "/lc.png"}
+                        alt="Platform"
+                        className="w-4 h-4"
+                      />
                       <span className="text-xs">{event.title}</span>
                     </div>
                   ),

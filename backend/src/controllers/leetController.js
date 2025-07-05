@@ -1,7 +1,7 @@
 import axios from "axios";
 import User from "../models/user.model.js";
-
-
+// import pkg from "alfa-leetcode-api";
+// const { getUpcomingContests } = pkg;
 
 export const getLeetCodeStats = async (req, res) => {
   const { handle } = req.params;
@@ -92,3 +92,41 @@ export const updateLeetCodeHandle = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+
+
+
+// export const getLeetCodeContests = async (req, res) => {
+//   try {
+//     const contests = await getUpcomingContests();
+
+//     const formatted = contests.map((c) => {
+//       const start = new Date(c.startTime);
+//       const end = new Date(start.getTime() + c.duration * 1000);
+
+//       return {
+//         id: c.title.toLowerCase().replace(/\s+/g, "-"),
+//         title: c.title,
+//         start,
+//         end,
+//         duration: c.duration,
+//         link: c.link,
+//       };
+//     });
+
+//     res.status(200).json({ contests: formatted });
+//   } catch (error) {
+//     console.error("LeetCode API error:", error.message);
+//     res.status(500).json({ message: "Failed to fetch LeetCode contests" });
+//   }
+// };
+
+
+
+
+
+
+
+
+
+

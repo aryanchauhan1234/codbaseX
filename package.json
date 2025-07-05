@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/aryanchauhan1234/CodeTracker/issues"
   },
-  "homepage": "https://github.com/aryanchauhan1234/CodeTracker#readme"
+  "homepage": "https://github.com/aryanchauhan1234/CodeTracker#readme",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "cheerio": "^1.1.0"
+  }
 }
