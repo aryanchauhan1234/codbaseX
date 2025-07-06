@@ -5,7 +5,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import http from "http";
-
+import questionSearchRoute from "./routes/questionSearchRoute.js";
 import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/cf.route.js";
@@ -37,7 +37,7 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/cfusers", userRoutes);
 app.use("/api/leetcode", leetcodeRoutes);
-
+app.use("/api", questionSearchRoute);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
