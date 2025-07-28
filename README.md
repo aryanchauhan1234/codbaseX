@@ -1,66 +1,71 @@
-# 🚀 Codeforces Tracker Web App
+# 🚀 CodbaseX – Competitive Programming Portfolio Tracker
 
-A modern full-stack web application that helps you **track Codeforces performance**, **compare with friends**, and **grow intelligently** through personalized insights. Built with a sleek UI and support for **32 customizable themes**!
-
----
-
-## 🔍 Features
-
-### 📊 Codeforces Info
-- Fetch and display Codeforces user details in a modern, responsive UI.
-- Show avatar, handle, rating, rank, max rating, problems solved, and more.
-
-### 👥 Friend Comparison
-- Add Codeforces handles of your friends.
-- Compare rating, rank, max rating, contests, and problem-solving stats side-by-side.
-- Graphical comparison with beautiful bar charts for quick insights.
-
-### 🧠 Personalized Growth Page
-- Identify your weak topics.
-- Detect days when your activity drops.
-- Track problem rating trends to analyze growth or stagnation.
-- Get intelligent suggestions to stay consistent and improve faster.
-
-### 🎨 32 Custom Themes
-- Choose from **32 unique UI themes** to match your vibe.
-- Live theme switching with a preview chat interface to see your theme in action.
+**CodbaseX** is a full-stack MERN web app that helps users visualize, track, and improve their competitive programming journey across platforms like **Codeforces**, **LeetCode**, and **CodeChef** — all in one place.
 
 ---
 
-## 🛠️ Tech Stack
+## 🔥 Features
 
-- **Frontend:** React + Tailwind CSS + Zustand (state management)
-- **Backend:** Node.js + Express + MongoDB
-- **Data:** Codeforces API
+- 📈 **CodbaseX-Style Dashboard** – Clean UI with rating graphs, submission heatmaps, milestones, and topic stats.
+- 🧠 **Personalized Insights** – Detect weak topics, activity drop alerts, and rating trend analysis.
+- 🤝 **Friend Comparison** – Compare ratings, problems solved, and contest performance across friends.
+- 📆 **Event Tracker** – See all upcoming contests in a calendar view.
+- ✅ **Question Tracker** – Track custom DSA question lists or company-wise questions (e.g., Google, Amazon).
+- 🎯 **DSA Visualizers** – Interactive visualizations for Binary Search, DFS, Dijkstra, Quick Sort, etc.
+- 🔐 **JWT Authentication** – Secure and scalable login system.
+- ⚡ **Real-time Stats** – Fetched using Codeforces and LeetCode APIs (GraphQL + REST).
 
 ---
 
-📸 Screenshots
-User Info	Friend Comparison	Personalized Page	Theme Selector
+## 🛠 Tech Stack
 
+### 🖥 Frontend:
+- React.js
+- TailwindCSS
+- Zustand (State Management)
+- Framer Motion
+- Recharts
+- Lucide-react + shadcn/ui
 
-## 🚧 Setup Instructions
+### 🔧 Backend:
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JWT for Auth
+- Axios for API calls
 
-### 🔗 Clone the Repository
+### 📡 APIs:
+- Codeforces API
+- LeetCode GraphQL API (via `alfa-leetcode-api`)
+
+---
+
+## 🎨 Visualizers Used
+
+- Binary Search (with step-by-step highlighting)
+- DFS & Dijkstra (SVG-based circular layout with edge weights)
+- Quick Sort (animated pivot-based visualization)
+
+---
+
+## 🖼 Screenshots
+
+> *(Add GIFs or screenshots of the dashboard, visualizers, heatmap, and comparison pages here)*
+
+---
+
+## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/your-username/cf-tracker-app.git
-cd cf-tracker-app
+# Clone the repo
+git clone https://github.com/yourusername/CodbaseX.git
+cd CodbaseX
 
-🙌 Contributing
-Pull requests are welcome! If you have ideas for more analytics, graphs, or visualizations, feel free to open an issue or PR.
+# Install dependencies
+npm install  # or yarn
 
-📄 License
-MIT License © 2025 [Your Name]
+# Setup .env file with MongoDB URI and JWT secrets
+touch .env
 
-yaml
-Copy
-Edit
-
----
-
-Let me know if you'd like:
-- It in `README.md` file format ready to commit
-- To add demo links or GIF walkthrough
-- Theme preview GIFs
-- Hosting/deployment section (Vercel, Netlify, etc.)# Codefolio
+# Start the app
+npm run dev  # or yarn dev
