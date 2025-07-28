@@ -30,10 +30,10 @@ const QueueVisualizer = () => {
   };
 
   const renderInfoSection = () => (
-    <Card className="shadow-xl border rounded-2xl mt-10">
-      <CardContent className="pt-6 space-y-4">
-        <h3 className="text-lg font-semibold text-gray-800">🧠 C++ Code</h3>
-        <pre className="bg-gray-100 border border-gray-300 rounded-xl p-4 text-sm overflow-x-auto text-gray-800 font-mono">
+    <Card className="shadow-xl border rounded-2xl mt-10  ">
+      <CardContent className="pt-6 space-y-4 ">
+        {/* <h3 className="text-lg font-semibold text-gray-800 ">🧠 C++ Code</h3> */}
+        <pre className="bg-gray-100 border border-gray-300 dark:bg-gray-900 dark:text-white transition-colors duration-500 rounded-xl p-4 text-sm overflow-x-auto text-gray-800 font-mono">
 {`#include <queue>
 #include <iostream>
 using namespace std;
@@ -50,12 +50,12 @@ int main() {
 }`}
         </pre>
 
-        <div className="bg-orange-100 border border-orange-300 p-4 rounded-xl text-sm space-y-1 mt-10">
+        <div className="bg-orange-100 border border-orange-300 p-4 rounded-xl text-sm space-y-1 mt-10 dark:bg-gray-900 dark:text-white transition-colors duration-500">
           <div>📦 Time Complexity: <strong>O(1)</strong> (for push/pop)</div>
           <div>💾 Space Complexity: <strong>O(n)</strong></div>
         </div>
 
-        <div className="bg-white border border-orange-200 p-4 rounded-xl text-sm mt-10">
+        <div className="bg-white border border-orange-200 p-4 rounded-xl text-sm mt-10 dark:bg-gray-900 dark:text-white transition-colors duration-500">
           <h4 className="text-orange-700 font-semibold mb-2">🔗 Practice Problems:</h4>
           <ul className="list-disc ml-6 space-y-1 text-blue-600 underline">
             <li><a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank" rel="noreferrer">LeetCode - Implement Queue using Stacks</a></li>
@@ -69,12 +69,12 @@ int main() {
   );
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-[5%] text-orange-700">Queue (FIFO)</h2>
-      <div className="text-sm text-gray-700 mb-2 h-6">{message}</div>
+    <div className="p-4 ">
+      <h2 className="text-2xl font-bold mb-[5%] text-orange-700 ">Queue (FIFO)</h2>
+      <div className="text-sm text-gray-700 mb-2 h-6 dark:text-white transition-colors duration-500">{message}</div>
       <div className="flex gap-2 mb-4 flex-wrap   ">
         <input
-          className="border px-2 py-1 rounded border-orange-600 "
+          className="border px-2 py-1 rounded border-orange-600 dark:bg-gray-900 dark:text-white transition-colors duration-500 "
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="Enter value"

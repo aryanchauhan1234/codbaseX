@@ -111,18 +111,29 @@ export const useCfStorestemp = create((set, get) => ({
   },
 
   compareFriends: async () => {
-    const token = get().token;
     try {
       set({ isLoading: true });
+      const token = useAuthStore.getState().authUser?.token || localStorage.getItem('token');
+      
       const res = await axiosInstance.post(
         "/cfusers/compare-friends",
         {},
-        { headers: { Authorization: `Bearer ${token}` } }
+        { 
+          headers: { Authorization: `Bearer ${token}` },
+          timeout: 30000 // Increased timeout
+        }
       );
-      return res.data.data;
+      
+      if (res.data.success) {
+        console.log("Friends comparison data:", res.data.data);
+        return res.data.data;
+      } else {
+        console.error("Compare Friends API returned error:", res.data.message);
+        return [];
+      }
     } catch (err) {
-      console.error("Compare Friends Error:", err);
-      return null;
+      console.error("Compare Friends Error:", err.response?.data || err.message);
+      return [];
     } finally {
       set({ isLoading: false });
     }

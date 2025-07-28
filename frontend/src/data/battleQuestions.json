@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Sum of Two Numbers",
+    "description": "Write a program to print the sum of two integers.",
+    "testCases": [
+      {
+        "input": "2 3",
+        "output": "5"
+      }
+    ]
+  },
+  {
+    "title": "Check Even or Odd",
+    "description": "Write a program that checks whether a given number is even or odd.",
+    "testCases": [
+      {
+        "input": "4",
+        "output": "Even"
+      }
+    ]
+  },
+  {
+    "title": "Print Multiples",
+    "description": "Print the first 5 multiples of a given number.",
+    "testCases": [
+      {
+        "input": "3",
+        "output": "3 6 9 12 15"
+      }
+    ]
+  }
+]

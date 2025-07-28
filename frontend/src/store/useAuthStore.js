@@ -57,6 +57,16 @@ export const useAuthStore = create((set, get) => ({
       await axiosInstance.post("/auth/logout");
       set({ authUser: null });
       toast.success("Logged out successfully");
+      
+      // Clear any cached data
+      localStorage.removeItem("battleRoomId");
+      localStorage.removeItem("battlePlayers");
+      localStorage.removeItem("battleQuestions");
+      localStorage.removeItem("battleEndTime");
+      localStorage.removeItem("username");
+      
+      // Navigate to login page
+      window.location.href = "/login";
     } catch (error) {
       toast.error(error.response.data.message);
     }

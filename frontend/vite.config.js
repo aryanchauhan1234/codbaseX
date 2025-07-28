@@ -9,5 +9,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    include: ['@monaco-editor/react'], // 👈 Required for Monaco in Vite
+  },
 });
+
 

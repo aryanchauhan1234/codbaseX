@@ -121,11 +121,11 @@ const Card = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center min-h-screen bg-[#f9fafb] p-6 gap-10">
+    <div className="flex flex-col lg:flex-row justify-center items-center min-h-screen bg-[#f9fafb] dark:bg-gray-900 dark:text-white transition-colors duration-500 p-6 gap-10">
       {/* Card */}
       <div
         ref={cardRef}
-        className="relative mt-6 bg-white rounded-3xl border border-gray-200 p-6 w-full max-w-sm shadow-xl text-center overflow-visible"
+        className="relative mt-6 bg-white dark:bg-gray-900 dark:text-white transition-colors duration-500  rounded-3xl border border-gray-200 p-6 w-full max-w-[28%] shadow-xl text-center overflow-visible"
       >
 
         {/* Header */}

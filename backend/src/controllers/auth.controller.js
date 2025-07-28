@@ -2,6 +2,15 @@ import { generateToken } from "../lib/utils.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import cloudinary from "../lib/cloudinary.js";
+import { OAuth2Client } from "google-auth-library";
+
+// Test imports
+console.log("✅ All imports loaded successfully");
+console.log("✅ User model:", !!User);
+console.log("✅ bcrypt:", !!bcrypt);
+console.log("✅ generateToken:", !!generateToken);
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 export const signup = async (req, res) => {
   const { fullName, email, password } = req.body;
@@ -99,48 +108,9 @@ export const googleLogin = async (req, res) => {
   const { token } = req.body;
 
   try {
-    const ticket = await client.verifyIdToken({
-      idToken: token,
-      audience: process.env.GOOGLE_CLIENT_ID,
-    });
-
-    const payload = ticket.getPayload();
-    const { email, name, picture, sub: googleId } = payload;
-
-    let user = await User.findOne({ email });
-
-    if (!user) {
-      user = new User({
-        fullName: name,
-        email,
-        password: googleId, // dummy password
-        profilePic: picture,
-      });
-
-      await user.save();
+    if (!token) {
+      return res.status(400).json({ message: "Token is required" });
     }
-
-    generateToken(user._id, res);
-
-    res.status(200).json({
-      _id: user._id,
-      fullName: user.fullName,
-      email: user.email,
-      profilePic: user.profilePic,
-      cfHandle: user.cfHandle || null,
-      leetHandle: user.leetHandle || null,
-    });
-  } catch (error) {
-    console.log("Error in googleLogin controller", error.message);
-    res.status(500).json({ message: "Google Login Failed" });
-  }
-};
-import { OAuth2Client } from "google-auth-library";
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-
-export const googleSignup = async (req, res) => {
-  try {
-    const { token } = req.body;
 
     const ticket = await client.verifyIdToken({
       idToken: token,
@@ -156,27 +126,64 @@ export const googleSignup = async (req, res) => {
       user = await User.create({
         fullName: name,
         email,
-        password: "google-oauth", // or a random hash
+        password: "google-oauth",
         profilePic: picture,
       });
     }
 
-    const jwtToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
-    res.cookie("jwt", jwtToken, {
-      httpOnly: true,
-      sameSite: "Lax",
-      secure: false,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
+    console.log("Generating token for user:", user._id);
+    const jwtToken = generateToken(user._id, res);
+    console.log("Token generated:", !!jwtToken);
 
     res.status(200).json({
       _id: user._id,
       email: user.email,
       fullName: user.fullName,
       profilePic: user.profilePic,
+      cfHandle: user.cfHandle || null,
+      leetHandle: user.leetHandle || null,
     });
-  } catch (err) {
-    console.error("Error in googleSignup:", err);
+  } catch (error) {
+    console.error("Error in googleLogin:", error);
     res.status(500).json({ message: "Google login failed" });
+  }
+};
+
+export const googleSignup = async (req, res) => {
+  const { token } = req.body;
+
+  try {
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    const { email, name, picture } = payload;
+
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      user = await User.create({
+        fullName: name,
+        email,
+        password: "google-oauth",
+        profilePic: picture,
+      });
+    }
+
+    generateToken(user._id, res);
+
+    res.status(200).json({
+      _id: user._id,
+      email: user.email,
+      fullName: user.fullName,
+      profilePic: user.profilePic,
+      cfHandle: user.cfHandle || null,
+      leetHandle: user.leetHandle || null,
+    });
+  } catch (error) {
+    console.error("Error in googleSignup:", error);
+    res.status(500).json({ message: "Google signup failed" });
   }
 };

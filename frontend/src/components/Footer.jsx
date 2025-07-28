@@ -2,7 +2,7 @@ import { Facebook, Twitter, Linkedin, Github } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10 ">
+    <footer className=" py-10 dark:bg-gray-900 dark:text-white transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* Brand Info */}

@@ -1,19 +1,32 @@
-// import { create } from "zustand";
+import { create } from "zustand";
 
-<<<<<<< HEAD
-export const useThemeStore = create((set) => ({
-  theme: localStorage.getItem("chat-theme") || "winter",
-  setTheme: (theme) => {
-    localStorage.setItem("chat-theme", theme);
-    set({ theme });
+const useThemeStore = create((set) => ({
+  isDark: false,
+
+  toggleTheme: () =>
+    set((state) => {
+      const newMode = !state.isDark;
+      if (newMode) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      localStorage.setItem("darkMode", JSON.stringify(newMode));
+      return { isDark: newMode };
+    }),
+
+  initializeTheme: () => {
+    const stored = localStorage.getItem("darkMode");
+    const isDark = stored ? JSON.parse(stored) : false;
+
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    set({ isDark });
   },
 }));
-=======
-// export const useThemeStore = create((set) => ({
-//   theme: localStorage.getItem("chat-theme") || "winter",
-//   setTheme: (theme) => {
-//     localStorage.setItem("chat-theme", theme);
-//     set({ theme });
-//   },
-// }));
->>>>>>> 4345ce6 (update1)
+
+export default useThemeStore;

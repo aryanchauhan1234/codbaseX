@@ -150,8 +150,8 @@ const DijkstraVisualizer = () => {
     const renderInfoSection = () => (
         <Card className="shadow-xl border rounded-2xl mt-10 ">
             <CardContent className="pt-6 space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800">🧠 C++ Code</h3>
-                <pre className="bg-gray-100 border border-gray-300 rounded-xl p-4 text-sm overflow-x-auto text-gray-800 font-mono mb-10">
+                {/* <h3 className="text-lg font-semibold text-gray-800">🧠 C++ Code</h3> */}
+                <pre className="bg-gray-100 border border-gray-300 rounded-xl p-4 text-sm overflow-x-auto text-gray-800 font-mono mb-10 dark:bg-gray-900 dark:text-white transition-colors duration-500">
                     {`void dijkstra(int start, vector<vector<pair<int, int>>>& graph, vector<int>& dist) {
   priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq;
   dist[start] = 0;
@@ -171,12 +171,12 @@ const DijkstraVisualizer = () => {
             }`}
                 </pre>
 
-                <div className="bg-orange-100 border border-orange-300 p-4 rounded-xl text-sm space-y-1 mb-10">
+                <div className="bg-orange-100 border border-orange-300 p-4 rounded-xl text-sm space-y-1 mb-10 dark:bg-gray-900 dark:text-white transition-colors duration-500">
                     <div>📦 Time Complexity: <strong>O((V + E) log V)</strong></div>
                     <div>💾 Space Complexity: <strong>O(V + E)</strong></div>
                 </div>
 
-                <div className="bg-white border border-orange-200 p-4 rounded-xl text-sm">
+                <div className="bg-white border border-orange-200 p-4 rounded-xl text-sm dark:bg-gray-900 dark:text-white transition-colors duration-500">
                     <h4 className="text-orange-700 font-semibold mb-2">🔗 Practice Problems:</h4>
                     <ul className="list-disc ml-6 space-y-1 text-blue-600 underline">
                         <li><a href="https://leetcode.com/problems/network-delay-time/" target="_blank" rel="noreferrer">LeetCode - Network Delay Time</a></li>
@@ -200,14 +200,14 @@ const DijkstraVisualizer = () => {
                             value={edgeInput}
                             onChange={(e) => setEdgeInput(e.target.value)}
                             placeholder="Edges (e.g. 0 1 1, 1 2 3)"
-                            className="border border-gray-300 rounded-xl p-3"
+                            className="border border-gray-300 rounded-xl p-3 dark:bg-gray-900 dark:text-white transition-colors duration-500"
                             />
                         <input
                             type="text"
                             value={startNode}
                             onChange={(e) => setStartNode(e.target.value)}
                             placeholder="Start Node"
-                            className="border border-gray-300 rounded-xl p-3"
+                            className="border border-gray-300 rounded-xl p-3 dark:bg-gray-900 dark:text-white transition-colors duration-500"
                             />
                         <button
                             onClick={handleStart}
@@ -325,7 +325,7 @@ const DijkstraVisualizer = () => {
                             </button>
                             <button
                                 onClick={reset}
-                                className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-6 rounded-2xl"
+                                className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-6 rounded-2xl dark:bg-gray-900 dark:text-white transition-colors duration-500 dark:border border-white"
                             >
                                 🔄 Reset
                             </button>

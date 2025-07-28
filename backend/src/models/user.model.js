@@ -28,10 +28,27 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    cfFriends: {
+      type: [String],
+      default: [],
+    },
     friends: {
       type: [String],
       default: [],
     },
+    // Leaderboard data cache
+    leaderboardData: {
+      cfProfilePic: { type: String, default: null },
+      totalSolved: { type: Number, default: 0 },
+      cfSolved: { type: Number, default: 0 },
+      leetSolved: { type: Number, default: 0 },
+      cfRating: { type: Number, default: 0 },
+      leetRating: { type: Number, default: 0 },
+      cfContests: { type: Number, default: 0 },
+      leetContests: { type: Number, default: 0 },
+      totalRating: { type: Number, default: 0 },
+      lastUpdated: { type: Date, default: null }
+    }
   },
   { timestamps: true }
 );

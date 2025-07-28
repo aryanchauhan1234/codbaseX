@@ -92,7 +92,7 @@ const EventTracker = () => {
     });
 
   return (
-    <div className="p-6 bg-white min-h-screen pt-24">
+    <div className="p-6  min-h-screen pt-24">
       <h1 className="text-3xl font-bold text-orange-600 mb-6">Contest Event Tracker</h1>
 
       {loading ? (

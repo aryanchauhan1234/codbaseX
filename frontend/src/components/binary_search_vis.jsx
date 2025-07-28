@@ -83,14 +83,14 @@ const BinarySearchVisualizer = () => {
             placeholder="Enter array (e.g. 5, 2, 9)"
             value={inputArray}
             onChange={(e) => setInputArray(e.target.value)}
-            className="border border-gray-300 rounded-xl p-3"
+            className="border border-gray-300 rounded-xl p-3 dark:bg-gray-900 dark:text-white transition-colors duration-500"
           />
           <input
             type="text"
             placeholder="Enter target value"
             value={target}
             onChange={(e) => setTarget(e.target.value)}
-            className="border border-gray-300 rounded-xl p-3"
+            className="border border-gray-300 rounded-xl p-3 dark:bg-gray-900 dark:text-white transition-colors duration-500"
           />
           <button
             onClick={handleStart}
@@ -122,7 +122,7 @@ const BinarySearchVisualizer = () => {
                         ? "bg-green-500 text-black text-4xl "
                         : isHigh
                           ? "bg-red-500 text-black text-4xl "
-                          : "bg-gray-400 text-white"}`}
+                          : "bg-white text-black border border-black"}`}
               >
                 {num}
               </div>
@@ -155,7 +155,7 @@ const BinarySearchVisualizer = () => {
 
             <button
               onClick={reset}
-              className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-2xl shadow-sm transition-all duration-200"
+              className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-2xl shadow-sm border  dark:bg-gray-900 dark:border-white dark:text-white transition-colors duration-500"
             >
               🔄 Reset
             </button>
@@ -164,9 +164,9 @@ const BinarySearchVisualizer = () => {
 
         {/* Code and Resources */}
         <Card className="shadow-xl border rounded-2xl">
-          <div className="pt-6 space-y-4">
-            <h3 className="text-lg font-semibold text-gray-800">🧠 C++ Code</h3>
-            <pre className="bg-gray-100 border border-gray-300 rounded-xl p-4 text-sm overflow-x-auto text-gray-800 font-mono">
+          <div className="pt-6 space-y-4 ">
+            {/* <h3 className="text-lg font-semibold text-gray-800">🧠 C++ Code</h3> */}
+            <pre className="bg-gray-100 border border-gray-300 rounded-xl p-4 text-sm overflow-x-auto text-gray-800 font-mono dark:bg-gray-900 dark:text-white transition-colors duration-500">
 {`int binarySearch(vector<int>& arr, int x) {
     int low = 0, high = arr.size() - 1;
     while (low <= high) {
@@ -179,12 +179,12 @@ const BinarySearchVisualizer = () => {
 }`}
             </pre>
 
-            <div className="bg-orange-100 border border-orange-300 p-4 rounded-xl text-sm space-y-1">
+            <div className="bg-orange-100 border border-orange-300 p-4 rounded-xl text-sm space-y-1 dark:bg-gray-900 dark:text-white transition-colors duration-500">
               <div>📦 Time Complexity: <strong>O(log n)</strong></div>
               <div>💾 Space Complexity: <strong>O(1)</strong></div>
             </div>
 
-            <div className="bg-white border border-orange-200 p-4 rounded-xl text-sm">
+            <div className="bg-white border border-orange-200 p-4 rounded-xl text-sm dark:bg-gray-900 dark:text-white transition-colors duration-500">
               <h4 className="text-orange-700 font-semibold mb-2">
                 🔗 Practice Problems:
               </h4>

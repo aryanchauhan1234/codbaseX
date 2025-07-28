@@ -69,3 +69,6 @@ input.gsc-input {
   border-radius: 6px !important;
   font-weight: 500 !important;
 }
+body {
+  @apply bg-white text-black dark:bg-gray-900 dark:text-white;
+}

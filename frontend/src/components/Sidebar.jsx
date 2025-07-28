@@ -24,7 +24,7 @@ const Sidebar = () => {
   }, [handle]);
 
   return (
-    <div className="  min-h-screen w-90 bg-white border-r border-gray-200 shadow-sm px-4 py-6 flex flex-col  rounded-2xl">
+    <div className="  min-h-screen w-90 bg-white border-r border-gray-200 dark:border-none shadow-sm px-4 py-6 flex flex-col  rounded-2xl dark:bg-gray-900 dark:text-white transition-colors duration-500">
       {/* Top: User Info */}
       {cfUser && (
   <div className="flex flex-col gap-4 items-center mb-6">

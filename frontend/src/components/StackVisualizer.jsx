@@ -34,7 +34,7 @@ const StackVisualizer = () => {
       <div className="text-sm text-orange-800 mb-4 h-6">{message}</div>
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <input
-          className="border px-3 py-2 rounded-lg shadow-inner focus:outline-none"
+          className="border px-3 py-2 rounded-lg shadow-inner focus:outline-none dark:bg-gray-900 dark:text-white transition-colors duration-500"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="Enter value"
@@ -62,8 +62,8 @@ const StackVisualizer = () => {
       </div>
 
       {/* Additional Info Section */}
-      <div className="mt-10">
-        <pre className="bg-gray-100 border border-gray-300 rounded-xl p-4 text-sm overflow-x-auto text-gray-800 font-mono">
+      <div className="mt-10 bg-white p-6 rounded-xl">
+        <pre className="bg-gray-100 border border-gray-300 rounded-xl p-4 text-sm overflow-x-auto text-gray-800 font-mono dark:bg-gray-900 dark:text-white transition-colors duration-500">
 {`#include <stack>
 #include <iostream>
 using namespace std;
@@ -80,12 +80,12 @@ int main() {
 }`}
         </pre>
 
-        <div className="bg-orange-100 border border-orange-300 p-4 rounded-xl text-sm space-y-1 mt-6">
+        <div className="bg-orange-100 border border-orange-300 p-4 rounded-xl text-sm space-y-1 mt-6 dark:bg-gray-900 dark:text-white transition-colors duration-500">
           <div>📦 Time Complexity: <strong>O(1)</strong> (for push/pop/top)</div>
           <div>💾 Space Complexity: <strong>O(n)</strong></div>
         </div>
 
-        <div className="bg-white border border-orange-200 p-4 rounded-xl text-sm mt-6">
+        <div className="bg-white border border-orange-200 p-4 rounded-xl text-sm mt-6 dark:bg-gray-900 dark:text-white transition-colors duration-500">
           <h4 className="text-orange-700 font-semibold mb-2">🔗 Practice Problems:</h4>
           <ul className="list-disc ml-6 space-y-1 text-blue-600 underline">
             <li><a href="https://leetcode.com/problems/min-stack/" target="_blank" rel="noreferrer">LeetCode - Min Stack</a></li>

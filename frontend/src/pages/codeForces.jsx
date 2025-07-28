@@ -19,42 +19,42 @@ const CodeForces = () => {
   const {isLoading } = useCfStorestemp();
   const {authUser} = useAuthStore();
   return (
-    <div className="min-h-screen bg-gray-50 pt-[4%]  flex">
+    <div className="min-h-screen bg-gray-50 pt-[4%]  flex dark:bg-gray-900 dark:text-white transition-colors duration-500">
   {/* Main Content */}
    {isLoading && (
-  <div className="fixed inset-0 z-50 flex justify-center items-center bg-white/70">
+  <div className="fixed inset-0 z-50 flex justify-center items-center bg-white/70 dark:bg-gray-900 dark:text-white transition-colors duration-500">
     <Loader className="w-10 h-10 text-orange-500 animate-spin" />
   </div>
 )}
     {authUser.cfHandle && <Sidebar/>}
-  <main className=" flex-1  max-w-7xl mx-auto">
+  <main className=" flex-1  max-w-7xl mx-auto dark:bg-gray-900 dark:text-white transition-colors duration-500">
     {!authUser.cfHandle && <CFHandleInput />}
 
     {authUser.cfHandle && (
       <>
-        <div className="">
-          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1">
+        <div className="dark:bg-gray-900 dark:text-white transition-colors duration-500">
+          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1 dark:bg-gray-900 dark:text-white transition-colors duration-500">
             <CfData />
           </div>
 
-          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1">
+          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1 dark:bg-gray-900 dark:text-white transition-colors duration-500">
             <CFStreakTracker />
           </div>
 
-          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1">
+          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1 dark:bg-gray-900 dark:text-white transition-colors duration-500">
             <CFContestSolveTime />
           </div>
 
-          <div className="bg-white p-4 rounded-xl shadow-sm col-span-2">
+          <div className="bg-white p-4 rounded-xl shadow-sm col-span-2 dark:bg-gray-900 dark:text-white transition-colors duration-500">
             <CfRatingGraph />
           </div>
 
 
-          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1">
+          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1 dark:bg-gray-900 dark:text-white transition-colors duration-500">
             <CFFastestAccepted />
           </div>
 
-          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1">
+          <div className="bg-white p-4 rounded-xl shadow-sm col-span-1 dark:bg-gray-900 dark:text-white transition-colors duration-500">
             <CFProblemSolved />
           </div>
 
@@ -62,11 +62,11 @@ const CodeForces = () => {
             {/* <CFVerdictDistribution />
           </div> */}
 
-          <div className="bg-white p-4 rounded-xl shadow-sm col-span-2">
+          <div className="bg-white p-4 rounded-xl shadow-sm col-span-2 dark:bg-gray-900 dark:text-white transition-colors duration-500">
             <CfSubmissions />
           </div>
 
-          <div className="bg-white p-4 rounded-xl shadow-sm col-span-2">
+          <div className="bg-white p-4 rounded-xl shadow-sm col-span-2 dark:bg-gray-900 dark:text-white transition-colors duration-500">
             <CfSubmissionsheat />
           </div>
         </div>

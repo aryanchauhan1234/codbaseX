@@ -15,26 +15,55 @@ import {
 const FriendComparison = () => {
   const [comparison, setComparison] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const compareFriends = useCfStorestemp((s) => s.compareFriends);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const res = await compareFriends();
-      if (res) {
-        const processed = res.map((f) => ({
-          ...f,
-          avgSolvedPerContest:
-            f.contestsAttended > 0
-              ? parseFloat((f.problemsSolved / f.contestsAttended).toFixed(2))
-              : 0,
-        }));
-        setComparison(processed);
+      setError(null);
+      
+      try {
+        const res = await compareFriends();
+        if (res && Array.isArray(res)) {
+          const processed = res.map((f) => ({
+            ...f,
+            avgSolvedPerContest:
+              f.contestsAttended > 0
+                ? parseFloat((f.problemsSolved / f.contestsAttended).toFixed(2))
+                : 0,
+          }));
+          setComparison(processed);
+        } else {
+          setComparison([]);
+        }
+      } catch (err) {
+        console.error("Error fetching friend comparison:", err);
+        setError("Failed to load friend comparison data");
+        setComparison([]);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
+    
     fetchData();
-  }, []);
+  }, [compareFriends]);
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <div className="text-center">
+          <p className="text-red-600 text-lg mb-4">{error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen  flex items-start justify-center px-4 py-[8%]">

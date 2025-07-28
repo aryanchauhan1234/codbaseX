@@ -80,7 +80,7 @@ const QuickSortVisualizer = () => {
             placeholder="Enter array (e.g. 10, 2, 5)"
             value={inputArray}
             onChange={(e) => setInputArray(e.target.value)}
-            className="border border-gray-300 rounded-xl p-3"
+            className="border border-gray-300 rounded-xl p-3 dark:bg-gray-900 dark:text-white transition-colors duration-500"
           />
           <button
             onClick={handleStart}
@@ -108,7 +108,7 @@ const QuickSortVisualizer = () => {
                     ? "bg-red-400 text-white"
                     : isComparing
                     ? "bg-blue-400 text-white"
-                    : "bg-gray-400 text-white"}`}
+                    : "bg-white text-black border border-black"}`}
               >
                 {num}
               </div>
@@ -128,7 +128,7 @@ const QuickSortVisualizer = () => {
 
             <button
               onClick={reset}
-              className="bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-6 rounded-2xl shadow-sm"
+              className="bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-6 rounded-2xl border shadow-sm dark:bg-gray-900 dark:text-white transition-colors duration-500 dark:border-white"
             >
               🔄 Reset
             </button>

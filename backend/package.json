@@ -11,6 +11,7 @@
   "type": "module",
   "license": "ISC",
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
     "alfa-leetcode-api": "^2.0.1",
     "axios": "^1.10.0",
     "bcryptjs": "^2.4.3",
@@ -24,7 +25,9 @@
     "ical": "^0.8.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1",
-    "recharts": "^2.15.3"
+    "recharts": "^2.15.3",
+    "socket.io": "^4.8.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
