@@ -51,12 +51,12 @@ const Navbar = () => {
               to="/"
               className="flex items-center hover:opacity-80 transition-all"
             >
-              <Lottie
+{/*               <Lottie
                 animationData={logoAnimation}
                 loop
                 autoplay
                 className="w-10 h-10"
-              />
+              /> */}
               <motion.h1
                 className="text-lg font-bold flex items-center"
                 variants={containerVariants}
