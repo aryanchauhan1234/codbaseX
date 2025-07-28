@@ -26,6 +26,7 @@ import JoinRoom from "./pages/JoinRoom";
 import Result from "./pages/Result";
 import { setupBattleSocket } from "./lib/setupBattleSocket"; // ✅ ADD THIS
 import Leaderboard from "./pages/Leaderboard";
+import WorkingPage from "./pages/WorkingPage";
 
 // import { useThemeStore } from "./store/useThemeStore";
 import { useEffect,usena } from "react";
@@ -102,6 +103,7 @@ const App = () => {
         <Route path="/join" element={<JoinRoom />} />
         <Route path="/result" element={<Result />} />
         <Route path="/battle/:roomId" element={<BattleRoom />} />
+        <Route path="/workingpage" element={authUser ? <WorkingPage /> : <Navigate to="/login" />} />
         </Routes>
       </main>
 
