@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import logoAnimation from "../styles/logo.json";
 
-const logoText = "Codfolio".split("");
+const logoText = "CodbaseX".split("");
 
 const containerVariants = {
   animate: {
@@ -67,7 +67,7 @@ const Navbar = () => {
                   <motion.span
                     key={i}
                     variants={letterVariants}
-                    className={i >= 3 ? "text-orange-500" : ""}
+                    className={i >= 7 ? "text-orange-500" : ""}
                   >
                     {char}
                   </motion.span>
