@@ -98,7 +98,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute "></div>
-        <div className="max-w-7xl px-[4%] py-[5%]">
+        <div className="max-w-7xl px-[4%] py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <motion.div
