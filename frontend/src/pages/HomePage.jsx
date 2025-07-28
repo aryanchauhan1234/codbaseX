@@ -120,7 +120,7 @@ const HomePage = () => {
                 </h1>
                 
                 <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
-                  <span className="font-semibold text-orange-600">Codfolio</span> empowers developers 
+                  <span className="font-semibold text-orange-600">CodbaseX</span> empowers developers 
                   to navigate and accelerate their coding journey with intelligent insights and comprehensive tracking.
                 </p>
               </div>
@@ -311,9 +311,9 @@ const HomePage = () => {
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
                 Your{" "}
                 <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-                  Rating
+                  placing in
                 </span>{" "}
-                Distribution
+                Leaderboard
               </h2>
               <p className="text-xl text-gray-600">
                 Detailed breakdown of your performance across different problem categories and difficulty levels.
