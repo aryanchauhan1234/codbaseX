@@ -43,26 +43,13 @@ app.use("/api/judge", judgeRoutes);
 app.use("/api/questions", questionRoutes);
 app.use("/api/leaderboard", leaderboardRoutes);
 
-setupSocket(server);
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
-app.use((error, req, res, next) => {
-  console.error("Global error handler:", error);
-  res.status(500).json({ 
-    message: "Internal Server Error", 
-    error: error.message,
-    stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
-  });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
 });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
-  });
-}
-
 server.listen(PORT, () => {
-  console.log("Server is running on PORT:" + PORT);
+  console.log("server is running on PORT:" + PORT);
   connectDB();
 });
