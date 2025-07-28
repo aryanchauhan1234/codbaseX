@@ -7,7 +7,7 @@ const Footer = () => {
         
         {/* Brand Info */}
         <div>
-          <h1 className="text-2xl font-bold mb-4">Cod<span className="text-orange-500">folio</span></h1>
+          <h1 className="text-2xl font-bold mb-4">Codbase<span className="text-orange-500">X</span></h1>
           <p className="text-gray-400 text-sm">
             Track your coding journey across platforms like Codeforces
           </p>
