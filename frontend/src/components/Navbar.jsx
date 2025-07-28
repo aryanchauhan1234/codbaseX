@@ -138,19 +138,19 @@ const Navbar = () => {
                     Comparison
                   </Link>
                   <Link
-                    to="/battle/:roomId"
+                    to="/workingpage"
                     className="px-4 py-2 text-base hover:bg-gray-100"
                   >
                     Coding <span className="text-orange-500">Battle</span>
                   </Link>
                   <Link
-                    to="/create"
+                    to="/workingpage"
                     className="px-4 py-2 text-base hover:bg-gray-100"
                   >
                     Create Room
                   </Link>
                   <Link
-                    to="/join"
+                    to="/workingpage"
                     className="px-4 py-2 text-base hover:bg-gray-100"
                   >
                     Join Room
