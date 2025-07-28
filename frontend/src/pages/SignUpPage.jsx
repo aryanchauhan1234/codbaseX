@@ -52,7 +52,7 @@ const SignUpPage = () => {
       {/* LEFT SECTION – CODFOLIO INFO */}
       <div className="hidden md:flex w-1/2 bg-orange-500 text-white flex-col justify-center items-center p-10 relative overflow-hidden rounded-r-3xl space-y-6">
         <h2 className="text-4xl font-bold mb-4">
-          Welcome to <span className="text-black">Codfolio</span>
+          Welcome to <span className="text-black">CodbaseX</span>
         </h2>
 
         {/* Stats Cards */}
