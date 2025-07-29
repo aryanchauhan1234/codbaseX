@@ -37,7 +37,7 @@ const Footer = () => {
       </div>
 
       <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} Codesis. All rights reserved.
+        © {new Date().getFullYear()} CodbaseX. All rights reserved.
       </div>
     </footer>
   );
