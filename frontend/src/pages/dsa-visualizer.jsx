@@ -25,7 +25,7 @@ const DsaVisualizer = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 max-w-7xl mx-auto px-4 py-12 gap-6 pt-[6%] dark:bg-gray-900 dark:text-white transition-colors duration-500">
+    <div className="grid grid-cols-1 md:grid-cols-4 max-w-7xl mx-auto px-4 py-16 gap-6 dark:bg-gray-900 dark:text-white transition-colors duration-500">
       {/* Sidebar */}
       <div className="col-span-1">
         <h2 className="text-2xl font-bold mb-4 text-orange-500">Algorithms</h2>
