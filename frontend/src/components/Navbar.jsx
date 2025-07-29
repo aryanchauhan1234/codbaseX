@@ -37,7 +37,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {/* ✅ Logo */}
             <Link to="/" className="flex items-center">
-              <h1 className="text-sm sm:text-xl lg:text-xl font-bold flex items-center">
+              <h1 className="text-lg sm:text-xl lg:text-xl font-bold flex items-center">
                 {logoText.map((char, i) => (
                   <span key={i} className={i >= 7 ? "text-orange-500" : ""}>
                     {char}
