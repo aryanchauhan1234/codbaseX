@@ -130,7 +130,7 @@ const Card = () => {
 
         {/* Header */}
         <h2 className="text-xs font-bold mb-1 text-left tracking-wider text-gray-600">
-          <span className="text-orange-500">CODEFOLIO</span> CARD
+          <span className="text-orange-500">X</span> CARD
         </h2>
 
         {/* Download Button */}
@@ -214,7 +214,7 @@ const Card = () => {
       <div className="text-center max-w-lg">
         <img src="/photo2.png" alt="mascot" className="w-[30%] h-[30%] mx-auto mb-4" />
         <h3 className="text-3xl font-bold text-gray-800 leading-snug">
-          Here's Your <span className="text-orange-500">#Codefolio</span> Card
+          Here's Your <span className="text-orange-500">#CodbaseX</span> Card
         </h3>
         <p className="mt-2 text-gray-500 font-medium text-sm">
           Show off your journey in CP & DSA!
