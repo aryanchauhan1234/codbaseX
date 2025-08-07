@@ -60,7 +60,7 @@ const Sidebar = () => {
       {/* Social Icons */}
       <div className="flex flex-col space-y-4">
     
-        <button className="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition">View Leaderboard</button>
+        <button onClick={() => navigate("/leaderboard")} className="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition">View Leaderboard</button>
 <button onClick={() => navigate("/card")} className="mt-2 w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition flex items-center justify-center gap-2">
   <span>Unlock Card</span>
   <Lock className="w-4 h-4" />
