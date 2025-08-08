@@ -51,13 +51,6 @@ const HomePage = () => {
   );
 };
 
-  // Smooth scroll progress for progress bar
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
   useEffect(() => {
     // Simulate loading (replace with actual asset loading logic if needed)
     const timer = setTimeout(() => setIsLoading(false), 1500);
@@ -159,24 +152,24 @@ const HomePage = () => {
     }
   };
 
-  // Preloader component
-  const Preloader = () => (
-    <motion.div
-      className="fixed inset-0 flex items-center justify-center bg-white z-50"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 0 }}
-      transition={{ duration: 0.5, delay: 1 }}
-      onAnimationComplete={() => setIsLoading(false)}
-    >
-      <motion.div
-        className="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-      />
-    </motion.div>
-  );
+  // // Preloader component
+  // const Preloader = () => (
+  //   <motion.div
+  //     className="fixed inset-0 flex items-center justify-center bg-white z-50"
+  //     initial={{ opacity: 1 }}
+  //     animate={{ opacity: 0 }}
+  //     transition={{ duration: 0.5, delay: 1 }}
+  //     onAnimationComplete={() => setIsLoading(false)}
+  //   >
+  //     <motion.div
+  //       className="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full"
+  //       animate={{ rotate: 360 }}
+  //       transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+  //     />
+  //   </motion.div>
+  // );
 
-  if (isLoading) return <Preloader />;
+  // if (isLoading) return <Preloader />;
 
   return (
     <div className="min-h-screen relative">
