@@ -29,8 +29,8 @@ const HomePage = () => {
       const stepTime = Math.max(Math.floor(duration / end), 20);
 
       const timer = setInterval(() => {
-        if(end>=1000){start += 100;}
-        else if(end>=100){start += 10;}
+        if(end>=1000){start += 150;}
+        else if(end>=100){start += 11;}
         else{start += 1;}
         setCount(start);
         if (start >= end) clearInterval(timer);
@@ -294,8 +294,8 @@ const HomePage = () => {
             variants={staggerContainer}
           >
            <StatCard icon={Users} value={15} label="Active Users" />
-        <StatCard icon={CheckCircle} value={5000} label="Problems Tracked" />
-        <StatCard icon={Zap} value={500} label="Contests Monitored" />
+        <StatCard icon={CheckCircle} value={7621} label="Problems Tracked" />
+        <StatCard icon={Zap} value={576} label="Contests Monitored" />
         <StatCard icon={Star} value={4.9} label="Rating" />
           </motion.div>
         </div>
