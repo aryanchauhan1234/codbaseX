@@ -85,7 +85,7 @@ const FriendInput = ({ comparisonRef }) => {
           onClick={handleSubmit}
           className="w-full bg-orange-500 text-white py-2 rounded-xl hover:bg-orange-600 transition-all"
         >
-          Save Friends
+          Save Friends& Compare
         </button>
       </div>
     </div>
