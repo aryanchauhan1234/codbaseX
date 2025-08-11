@@ -44,7 +44,7 @@ const FriendInput = ({ comparisonRef }) => {
     <div className="min-h-screen flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-2xl p-8 rounded-3xl shadow-lg bg-white border border-orange-200">
         <h2 className="text-3xl font-extrabold text-orange-800 mb-6 text-center">
-          👥 Add Codeforces Friends
+          Add Your Codeforces Friends
         </h2>
 
         <div className="flex gap-3 mb-4">
@@ -58,7 +58,7 @@ const FriendInput = ({ comparisonRef }) => {
           />
           <button
             onClick={handleAddFriend}
-            className="bg-orange-400 text-white px-5 py-2 rounded-xl hover:bg-orange-600 transition-all"
+            className="bg-orange-500 text-white px-5 py-2 rounded-xl hover:bg-orange-600 transition-all"
           >
             Add
           </button>
